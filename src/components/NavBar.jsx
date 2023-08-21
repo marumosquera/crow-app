@@ -2,8 +2,11 @@ import React from "react";
 import logo from "../assets/logologo.svg";
 import "../styles/NavBar.scss";
 import { Link } from "react-router-dom";
+import { useWeb3Modal } from '@web3modal/react';
+
 
 export const NavBar = () => {
+  const { open, close } = useWeb3Modal()
   return (
     <nav className="flex justify-between navbar">
       <div>
@@ -11,21 +14,18 @@ export const NavBar = () => {
         <img src={logo} alt="Crow Logo" className="logo" /></Link>
       </div>
       <div className="nav-menu">
-        <Link to="/escrow">
+        <Link to="/create">
           {" "}
-          <span>Escrow Service</span>
+          <span>Create</span>
         </Link>
-        <Link to="/tutorial">
+        <Link to="/mycontracts">
           {" "}
-          <span>Tutorial</span>
+          <span>My contracts</span>
         </Link>
-        <Link to="/about">
-          {" "}
-          <span>About</span>
-        </Link>
+
       </div>
       <div>
-        <button className="mainbutton">Launch app</button>
+        <button className="mainbutton" onClick={() => open()}>CONNECT WALLET</button>
       </div>
     </nav>
   );

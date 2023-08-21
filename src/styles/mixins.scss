@@ -1,7 +1,9 @@
 @import "variables";
 
 @mixin main-button {
-  width: 130px;
+  min-width: 130px;
+  max-width: fit-content;
+  padding: 2px;
   height: 39px;
   flex-shrink: 0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -16,6 +18,7 @@
   text-transform: capitalize;
   cursor: pointer;
   color: white;
+  
 }
 
 @mixin secondary-button {
